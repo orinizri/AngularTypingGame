@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core'
+import { lorem } from 'faker'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'typing';
+  randomText = lorem.sentence()
+  showMessage=false;
+  enteredText='';
+
+  onInput (event: Event) {
+    const { value } = event.target as HTMLInputElement
+    this.enteredText = value;
+  }
 }
